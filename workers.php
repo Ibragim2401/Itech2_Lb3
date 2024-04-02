@@ -27,7 +27,7 @@ try {
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Перетворення результату у формат JSON
-    $jsonResult = json_encode($result);
+    $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
 
     // Вивід результату як відповідь на запит
     echo $jsonResult;
