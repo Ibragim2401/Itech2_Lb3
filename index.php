@@ -131,7 +131,7 @@
                     var dayNodes = xmlDoc.getElementsByTagName("day");
                     var totalTime = 0;
                     for (var i = 0; i < dayNodes.length; i++) {
-                        var difference = parseInt(dayNodes[i].getElementsByTagName("difference")[0].childNodes[0].nodeValue);
+                        var difference = parseInt(dayNodes[i].getElementsByTagName("difference")[0].textContent);
                         totalTime += difference;
                     }
                     document.getElementById("totalTimeResult").innerHTML = "Total time spent: " + totalTime + " days";
