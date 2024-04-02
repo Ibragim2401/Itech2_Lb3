@@ -100,27 +100,27 @@
 
     <script>
         function getWorkersData() {
-    var chiefName = document.getElementById("workersChiefName").value;
-    var xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var response = JSON.parse(xhr.responseText);
-            var formattedText = formatWorkersData(response);
-            document.getElementById("workersResult").innerHTML = formattedText;
+
+            var chiefName = document.getElementById("workersChiefName").value;
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var response = JSON.parse(xhr.responseText);
+                    var formattedText = formatWorkersData(response);
+                    document.getElementById("workersResult").innerHTML = formattedText;
+                }
+            };
+            xhr.open("GET", "workers.php?chief_name=" + chiefName, true);
+            xhr.send();
         }
-    };
-    xhr.open("GET", "workers.php?chief_name=" + chiefName, true);
-    xhr.send();
-}
 
-function formatWorkersData(data) {
-    var formattedText = "";
-    for (var i = 0; i < data.length; i++) {
-        formattedText += "Name: " + data[i].name + "<br>";
-    }
-    return formattedText;
-}
-
+        function formatWorkersData(data) {
+            var formattedText = "";
+            for (var i = 0; i < data.length; i++) {
+                formattedText += "Manager: " + data[i].manager + "<br>";
+            }
+            return formattedText;
+        }
 
         function getTotalTimeData() {
             var projectName = document.getElementById("totalTimeProjectName").value;
