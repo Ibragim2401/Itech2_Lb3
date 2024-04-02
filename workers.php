@@ -29,11 +29,8 @@ try {
     // Перетворення результату у формат JSON
     $jsonResult = json_encode($result);
 
-    // Встановлення заголовка для вказання типу вмісту як чистий текст
-    header('Content-Type: text/plain');
-
     // Вивід результату як відповідь на запит
-    echo $jsonResult;
+    echo trim($jsonResult, '[]'); // Видалення квадратних дужок
 } catch (PDOException $ex) {
     // Обробка помилок
     echo "Помилка виконання запиту: " . $ex->getMessage();
