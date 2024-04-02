@@ -29,13 +29,8 @@ try {
     // Перетворення результату у формат JSON
     $jsonResult = json_encode($result);
 
-    // Декодування JSON у вигляді звичайного масиву
-    $decodedResult = json_decode($jsonResult, true);
-
     // Вивід результату як відповідь на запит
-    foreach ($decodedResult as $item) {
-        echo $item['manager'] . "<br>"; // Виводимо кожен елемент
-    }
+    echo $jsonResult;
 } catch (PDOException $ex) {
     // Обробка помилок
     echo "Помилка виконання запиту: " . $ex->getMessage();
