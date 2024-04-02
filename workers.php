@@ -27,7 +27,10 @@ try {
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     // Перетворення результату у формат JSON
-    $jsonResult = json_encode($result, JSON_PRETTY_PRINT);
+    $jsonResult = json_encode($result);
+
+    // Встановлення заголовка для вказання типу вмісту як чистий текст
+    header('Content-Type: text/plain');
 
     // Вивід результату як відповідь на запит
     echo $jsonResult;
