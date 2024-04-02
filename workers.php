@@ -33,7 +33,9 @@ try {
     $decodedResult = json_decode($jsonResult, true);
 
     // Вивід результату як відповідь на запит
-    print_r($decodedResult); // Виводимо звичайний масив
+    foreach ($decodedResult as $item) {
+        echo $item['manager'] . "<br>"; // Виводимо кожен елемент
+    }
 } catch (PDOException $ex) {
     // Обробка помилок
     echo "Помилка виконання запиту: " . $ex->getMessage();
