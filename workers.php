@@ -29,8 +29,11 @@ try {
     // Перетворення результату у формат JSON
     $jsonResult = json_encode($result);
 
+    // Декодування JSON у вигляді звичайного масиву
+    $decodedResult = json_decode($jsonResult, true);
+
     // Вивід результату як відповідь на запит
-    echo trim($jsonResult, '[]'); // Видалення квадратних дужок
+    print_r($decodedResult); // Виводимо звичайний масив
 } catch (PDOException $ex) {
     // Обробка помилок
     echo "Помилка виконання запиту: " . $ex->getMessage();
